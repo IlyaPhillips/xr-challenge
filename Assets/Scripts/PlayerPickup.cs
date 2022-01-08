@@ -12,11 +12,9 @@ public class PlayerPickup : MonoBehaviour
         if (other.GetComponent<Pickup>())
         {
             var score = other.GetComponent<Pickup>().GetPickedUp();
-            if (score != -1)
-            {
-                Debug.Log("Score Updated");
-                gUI.GetComponent<UIMananager>().UpdateScore(score);
-            }
+            if (score == -1) return;
+            //Debug.Log("Score Updated");
+            gUI.GetComponent<UIManager>().UpdateScore(score);
         }
     }
 }
