@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         var rotationAngle = obj.ReadValue<Vector2>().x;
         if (rotationAngle == 0) return;
-        Debug.Log("Rotation Angle: " + rotationAngle);
+        //Debug.Log("Rotation Angle: " + rotationAngle);
         mainCamera.transform.RotateAround(gameObject.transform.position, Vector3.up, rotationAngle * rotationSpeed);
     }
 
