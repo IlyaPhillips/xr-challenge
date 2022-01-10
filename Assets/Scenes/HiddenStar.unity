@@ -829,6 +829,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 467427319}
     m_Modifications:
+    - target: {fileID: 342083560, guid: b3396f7f05e4f6043a6f515e3133dff4, type: 3}
+      propertyPath: nextScene
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2402795849962188594, guid: b3396f7f05e4f6043a6f515e3133dff4,
         type: 3}
       propertyPath: m_RootOrder
@@ -2227,6 +2231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673344510411595985, guid: 336b21282462e234dab315fc6345bd28,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2673344510411595986, guid: 336b21282462e234dab315fc6345bd28,
         type: 3}

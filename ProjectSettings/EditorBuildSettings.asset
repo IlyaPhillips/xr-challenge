@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HiddenStar.unity
     guid: 0f136d2bb916f3f469b2c867d990750a
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: a825c092faf91e14eaf3ed2a581d5b4f
   m_configObjects: {}
