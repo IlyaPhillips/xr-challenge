@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPickup : MonoBehaviour
+// class that activates on triggering a pickup
+// could be improved by creating a public Event on pickup 
+public class PlayerPickup : MonoBehaviour 
 {
     [Header("References")] 
     [SerializeField] private GameObject gUI;

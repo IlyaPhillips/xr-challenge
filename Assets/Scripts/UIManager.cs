@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     public void UpdateScore(int score)
     {
         _score += score;
-        Debug.Log(_score);
+        
         _scoreText.text = "Score : " + _score;
     }
 }

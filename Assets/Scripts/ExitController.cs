@@ -15,8 +15,8 @@ public class ExitController : MonoBehaviour
     [SerializeField] private GameObject starPrefab;
     [SerializeField] private Transform starMap;
     
-    private List<Transform> _stars;
-    private List<GameObject> _starMarkers;
+    private List<Transform> _stars; //list of transforms of the actual positions of the stars
+    private List<GameObject> _starMarkers; // list of the star markers that appear on the door 
     private int _starCounter;
     void Start()
     {
@@ -30,7 +30,14 @@ public class ExitController : MonoBehaviour
         }
         
     }
-
+/// <summary>
+/// gets called from the player pickup class on collection of a star
+/// increments the star collected counter
+/// if all stars are collected opens the door
+/// the star map sets the stars to inactive rather than deleting them
+/// the stars could be set to reactivate on Pickup.Init() for a live updated position
+/// </summary>
+/// <param name="collected"></param>
     public void StarCollected(GameObject collected)
     {
         
