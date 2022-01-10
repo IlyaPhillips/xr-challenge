@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 // I'm using the Unity input system to make my controls easily extensible to other inputs like a gamepad
 
@@ -20,32 +21,48 @@ public class PlayerMovement : MonoBehaviour
     private InputAction _movement;
     private InputAction _cameraControls;
     private Rigidbody _rb;
+    private bool _cameraMoving;
 
     private void Awake()
     {
         _controls = new Controls();
         _rb = gameObject.GetComponent<Rigidbody>();
+        _cameraMoving = false;
     }
 
     private void OnEnable()
     {
         _movement = _controls.Player.Movement;
         _movement.Enable();
-        _cameraControls = _controls.Player.Camera; 
-        _cameraControls.performed += CameraMovement;
+        _cameraControls = _controls.Player.Camera;
+        //_cameraControls.started += CameraMovementStart;
+        //_cameraControls.performed += CameraMovement;
+        //_cameraControls.canceled += CameraMovementEnd;
         _cameraControls.Enable();
         // change to smooth camera controls using started and finished to start rotation and end
-        // change direction of player to face the direction the camera is looking
+        
     }
 
-    private void CameraMovement(InputAction.CallbackContext obj)
-    {
-        var rotationAngle = obj.ReadValue<Vector2>().x;
-        if (rotationAngle == 0) return;
-        //Debug.Log("Rotation Angle: " + rotationAngle);
-        transform.Rotate(Vector3.up,rotationAngle);
-        //mainCamera.transform.RotateAround(gameObject.transform.position, Vector3.up, rotationAngle * rotationSpeed);
-    }
+    // private void CameraMovementEnd(InputAction.CallbackContext obj)
+    // {
+    //     _cameraMoving = false;
+    // }
+    //
+    //
+    //
+    // private void CameraMovementStart(InputAction.CallbackContext obj)
+    // {
+    //     _cameraMoving = true;
+    // }
+    //
+    // private void CameraMovement(InputAction.CallbackContext obj)
+    // {
+    //     var rotationAngle = obj.ReadValue<Vector2>().x;
+    //     if (rotationAngle == 0) return;
+    //     Debug.Log("Rotation Angle: " + rotationAngle);
+    //     transform.Rotate(Vector3.up,rotationAngle);
+    //     //mainCamera.transform.RotateAround(gameObject.transform.position, Vector3.up, rotationAngle * rotationSpeed);
+    // }
 
     private void OnDisable()
     {
@@ -56,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         var movementVector = new Vector3(_movement.ReadValue<Vector2>().x, 0, _movement.ReadValue<Vector2>().y);
-        
+        transform.Rotate(Vector3.up,_cameraControls.ReadValue<Vector2>().x);
 
         _rb.AddRelativeForce(movementVector*speed); 
         //Debug.Log("Movement Values are :" + movementVector * speed*Time.fixedDeltaTime);
