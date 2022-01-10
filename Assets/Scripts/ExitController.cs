@@ -14,6 +14,7 @@ public class ExitController : MonoBehaviour
     [SerializeField] private Transform starMap;
     
     private List<Transform> _stars;
+    [SerializeField]private List<GameObject> _starMarkers;
     void Start()
     {
         _stars = new List<Transform>();
@@ -21,13 +22,20 @@ public class ExitController : MonoBehaviour
         {
             _stars.Add(pickups.transform.GetChild(i));
             var starPos = new Vector3(_stars[i].position.x / 5, (_stars[i].position.z+5) / 5 , 4.99f);
-            Instantiate(starPrefab,starPos,Quaternion.Euler(0,90,0),starMap);
-            //TODO create list to store Prefabs and use list to draw prefabs, if collected remove from list
-            //TODO make door open when list is empty
+            _starMarkers.Add(Instantiate(starPrefab,starPos,Quaternion.Euler(0,90,0),starMap));
         }
         
     }
 
-    // Update is called once per frame
-    
+    public void StarCollected(GameObject collected)
+    {
+        for (int i = 0; i < _stars.Count; i++)
+        {
+            if (collected == _stars[i].gameObject)
+            {
+                _starMarkers[i].SetActive(false);
+            }
+        }
+    }
+
 }
