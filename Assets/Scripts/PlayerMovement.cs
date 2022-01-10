@@ -43,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
         var rotationAngle = obj.ReadValue<Vector2>().x;
         if (rotationAngle == 0) return;
         //Debug.Log("Rotation Angle: " + rotationAngle);
-        mainCamera.transform.RotateAround(gameObject.transform.position, Vector3.up, rotationAngle * rotationSpeed);
+        transform.Rotate(Vector3.up,rotationAngle);
+        //mainCamera.transform.RotateAround(gameObject.transform.position, Vector3.up, rotationAngle * rotationSpeed);
     }
 
     private void OnDisable()
@@ -55,8 +56,9 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         var movementVector = new Vector3(_movement.ReadValue<Vector2>().x, 0, _movement.ReadValue<Vector2>().y);
+        
 
-        _rb.AddForce(movementVector*speed); 
+        _rb.AddRelativeForce(movementVector*speed); 
         //Debug.Log("Movement Values are :" + movementVector * speed*Time.fixedDeltaTime);
     }
 }
