@@ -354,7 +354,7 @@ RectTransform:
   m_Children:
   - {fileID: 881167742}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -469,6 +469,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308668867}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &387698453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2402795849962188595, guid: b3396f7f05e4f6043a6f515e3133dff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 578002876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &387698455 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2402795849962188594, guid: b3396f7f05e4f6043a6f515e3133dff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 578002876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &390246529
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,8 +614,9 @@ Transform:
   - {fileID: 511562983}
   - {fileID: 758008021}
   - {fileID: 1438960490}
+  - {fileID: 387698455}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471164126
 GameObject:
@@ -891,12 +904,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 467427319}
     m_Modifications:
     - target: {fileID: 2402795849962188594, guid: b3396f7f05e4f6043a6f515e3133dff4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2402795849962188594, guid: b3396f7f05e4f6043a6f515e3133dff4,
         type: 3}
@@ -921,17 +934,17 @@ PrefabInstance:
     - target: {fileID: 2402795849962188594, guid: b3396f7f05e4f6043a6f515e3133dff4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2402795849962188594, guid: b3396f7f05e4f6043a6f515e3133dff4,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2402795849962188594, guid: b3396f7f05e4f6043a6f515e3133dff4,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2402795849962188594, guid: b3396f7f05e4f6043a6f515e3133dff4,
         type: 3}
@@ -958,6 +971,11 @@ PrefabInstance:
       propertyPath: pickups
       value: 
       objectReference: {fileID: 1142215006}
+    - target: {fileID: 2402795849962188597, guid: b3396f7f05e4f6043a6f515e3133dff4,
+        type: 3}
+      propertyPath: exitZone
+      value: 
+      objectReference: {fileID: 1101951741}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3396f7f05e4f6043a6f515e3133dff4, type: 3}
 --- !u!1 &626377723
@@ -1553,6 +1571,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c436d2eaf5a77e48a26bcbc3a68e3cb, type: 3}
+--- !u!1 &1101951741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2402795849573831547, guid: b3396f7f05e4f6043a6f515e3133dff4,
+    type: 3}
+  m_PrefabInstance: {fileID: 578002876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1106617695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1708,7 @@ Transform:
   - {fileID: 1313637104}
   - {fileID: 879624189}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1313637104 stripped
 Transform:
@@ -1792,7 +1816,7 @@ Transform:
   - {fileID: 534669905}
   - {fileID: 626377724}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1342394706
 MonoBehaviour:
@@ -1838,6 +1862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gUI: {fileID: 291114802}
+  exitController: {fileID: 387698453}
 --- !u!1 &1422119176
 GameObject:
   m_ObjectHideFlags: 0

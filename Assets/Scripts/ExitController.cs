@@ -8,16 +8,20 @@ public class ExitController : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject door;
 
+    [SerializeField] private GameObject exitZone; 
+
     [SerializeField] private GameObject pickups;
 
     [SerializeField] private GameObject starPrefab;
     [SerializeField] private Transform starMap;
     
     private List<Transform> _stars;
-    [SerializeField]private List<GameObject> _starMarkers;
+    private List<GameObject> _starMarkers;
+    private int _starCounter;
     void Start()
     {
         _stars = new List<Transform>();
+        _starMarkers = new List<GameObject>();
         for (int i = 0; i < pickups.transform.childCount; i++)
         {
             _stars.Add(pickups.transform.GetChild(i));
@@ -29,13 +33,24 @@ public class ExitController : MonoBehaviour
 
     public void StarCollected(GameObject collected)
     {
+        
         for (int i = 0; i < _stars.Count; i++)
         {
-            if (collected == _stars[i].gameObject)
+            if (collected != _stars[i].gameObject) continue;
+            _starMarkers[i].SetActive(false);
+            _starCounter++;
+            if (_starCounter >= _stars.Count)
             {
-                _starMarkers[i].SetActive(false);
+                ActivateExit();
             }
+
+            break;
         }
     }
 
+    private void ActivateExit()
+    {
+        door.SetActive(false);
+        exitZone.SetActive(true);
+    }
 }
