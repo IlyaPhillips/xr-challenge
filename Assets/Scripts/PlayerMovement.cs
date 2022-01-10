@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
 
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float maxSpeed;
 
     [Header("References")] [SerializeField]
     private Camera mainCamera;
@@ -21,13 +22,12 @@ public class PlayerMovement : MonoBehaviour
     private InputAction _movement;
     private InputAction _cameraControls;
     private Rigidbody _rb;
-    private bool _cameraMoving;
+    
 
     private void Awake()
     {
         _controls = new Controls();
         _rb = gameObject.GetComponent<Rigidbody>();
-        _cameraMoving = false;
     }
 
     private void OnEnable()
@@ -75,7 +75,11 @@ public class PlayerMovement : MonoBehaviour
         var movementVector = new Vector3(_movement.ReadValue<Vector2>().x, 0, _movement.ReadValue<Vector2>().y);
         transform.Rotate(Vector3.up,_cameraControls.ReadValue<Vector2>().x);
 
-        _rb.AddRelativeForce(movementVector*speed); 
-        //Debug.Log("Movement Values are :" + movementVector * speed*Time.fixedDeltaTime);
+        _rb.AddRelativeForce(movementVector*speed);
+        if (!(_rb.velocity.magnitude >= maxSpeed)) return;
+        Debug.Log("Slow Down");
+        var velocity = _rb.velocity;
+        var brakingForce = velocity.magnitude;
+        _rb.AddForce(-velocity.normalized*brakingForce);
     }
 }

@@ -146,17 +146,6 @@
                 },
                 {
                     "name": "",
-                    "id": "eec20214-54cd-4538-b5dd-1c682b0b1b13",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "NormalizeVector2",
-                    "groups": "",
-                    "action": "Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "312b1eac-299a-4620-94e6-a1eaf6e22643",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
